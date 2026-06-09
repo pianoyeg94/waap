@@ -1,0 +1,17 @@
+version: v2
+
+managed:
+  enabled: true
+plugins:
+  - local: protoc-gen-go
+    out: ./proto
+    opt: paths=source_relative
+  - local: protoc-gen-go-vtproto
+    out: ./proto
+    opt: 
+      - paths=source_relative
+      - features=marshal+unmarshal+size+pool+unmarshal_unsafe
+      - pool=./proto.RequestProbe
+  # - local: protoc-gen-fastpb
+  #   out: ./proto
+  #   opt: paths=source_relative
