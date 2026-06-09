@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "./proto";
+
+message RequestProbe {
+    string http_request = 1;
+    repeated Match null_probe = 2;
+    repeated Match rarity_1 = 3;
+    repeated Match rarity_2 = 4;
+    repeated Match rarity_3 = 5;
+    repeated Match rarity_4 = 6;
+    repeated Match rarity_5 = 7;
+    repeated Match rarity_6 = 8;
+    repeated Match rarity_7 = 9;
+    repeated Match rarity_8 = 10;
+    repeated Match rarity_9 = 11;
+}
+
+message Match {
+    string probe_name = 1;
+    repeated string matches = 2;
+    uint64 match_count = 3;
+    repeated string softmatches = 4;
+    uint64 softmatch_count = 5;
+}
+
+message NmapProbeResults {
+    repeated RequestProbe results = 1;
+}
